@@ -69,12 +69,8 @@
                     </td>
                     <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
                         <div class="flex gap-2">
-                        <button class="rounded-lg border border-gray-500 px-8 py-2" (click)="viewDetails(item.id)">
-                            <p class="text-xs text-gray-500 font-bold">View Details</p>
-                        </button>
-                        <button class="rounded-lg border border-red-600 px-8 py-2 bg-red-600" (click)="deleteItem(item.id)">
-                            <p class="text-xs text-white font-bold">Delete</p>
-                        </button>
+                            <app-button text="View Details" type="gray" [onClick]="viewDetails.bind(this, item.id)"></app-button>
+                            <app-button text="Delete" type="danger" [onClick]="deleteItem.bind(this, item.id)"></app-button>
                         </div>
                     </td>
                 </tr>

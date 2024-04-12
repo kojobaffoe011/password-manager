@@ -6,12 +6,13 @@ import { CommonModule } from '@angular/common'; // Import CommonModule
 import { Password } from '../../interfaces/password.interface';
 import { LoaderComponent } from '../../components/loader/loader.component';
 import { FormComponent } from '../../components/form/form.component';
+import { ButtonComponent } from '../../components/button/button.component';
 
 
 @Component({
   selector: 'app-view-password',
   standalone: true,
-  imports: [FormsModule, CommonModule, LoaderComponent, FormComponent],
+  imports: [FormsModule, CommonModule, LoaderComponent, FormComponent, ButtonComponent],
   templateUrl: './view-password.component.html',
   styleUrl: './view-password.component.css'
 })

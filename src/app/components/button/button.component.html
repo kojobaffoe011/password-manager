@@ -1,0 +1,10 @@
+<button class="rounded-lg px-8 py-2 border disabled:bg-gray-400 disabled:cursor-not-allowed" [class.border-blue-600]="type === 'primary'"
+    [class.bg-blue-600]="type === 'primary'" [class.border-red-600]="type === 'danger'"
+    [class.bg-red-600]="type === 'danger'" [class.border-blue-600]="type === 'secondary'"
+    [class.bg-white]="type === 'secondary'" [class.border-gray-600]="type === 'gray'"
+    [class.bg-white]="type === 'gray'" (click)="onClick()">
+    <p class="text-xs font-bold"  
+    [class.text-white]="type === 'primary'" [class.text-white]="type === 'danger'"
+    [class.text-blue-600]="type === 'secondary'" [class.text-gray-600]="type === 'gray'"
+    >{{text}}</p>
+</button>

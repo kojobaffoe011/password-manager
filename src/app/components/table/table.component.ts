@@ -3,13 +3,14 @@ import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common'; // Import CommonModule
 import { DataService } from '../../services/data.services';
 import { LoaderComponent } from '../loader/loader.component';
+import { ButtonComponent } from '../button/button.component';
 
 
 
 @Component({
   selector: 'app-table',
   standalone: true,
-  imports: [CommonModule, LoaderComponent],
+  imports: [CommonModule, LoaderComponent, ButtonComponent],
   templateUrl: './table.component.html',
   styleUrl: './table.component.css'
 })

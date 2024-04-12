@@ -4,11 +4,12 @@ import { CommonModule } from '@angular/common'; // Import CommonModule
 import { Password } from '../../interfaces/password.interface';
 import { Router } from '@angular/router';
 import { DataService } from '../../services/data.services';
+import { ButtonComponent } from '../button/button.component';
 
 @Component({
   selector: 'app-form',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, ButtonComponent],
   templateUrl: './form.component.html',
   styleUrl: './form.component.css'
 })
