@@ -5,7 +5,14 @@
       "category": "school",
       "app": "buff",
       "userName": "kojobaffoa",
-      "encryptedPassword": "ZGRhZHNzag=="
+      "encryptedPassword": "ZGRh"
+    },
+    {
+      "id": "c078",
+      "category": "other",
+      "app": "buff",
+      "userName": "qwe",
+      "encryptedPassword": "YXNhcw=="
     }
   ]
 }

@@ -1,0 +1,52 @@
+<form #passwordForm="ngForm" (ngSubmit)="submitForm(passwordForm, passwordData)">
+    <div class="flex flex-col max-w-[600px] w-full">
+        <div class="grid grid-cols-2 gap-2 mb-6">
+            <div class="flex flex-col gap-2">
+                <label for="app" class="text-xs font-bold text-gray-500">APP NAME</label>
+                <input type="text" class="p-2 border border-gray-500 rounded-lg text-sm" id="app" name="app"
+                    [(ngModel)]="passwordData.app" required #app="ngModel">
+                <div *ngIf="app.invalid && (app.dirty || app.touched)" class="text-red-500 text-sm">App Name is required
+                </div>
+            </div>
+            <div class="flex flex-col gap-2">
+                <label for="category" class="text-xs font-bold text-gray-500">Category</label>
+                <select class="p-2 border border-gray-500 rounded-lg text-sm" id="category" name="category"
+                    [(ngModel)]="passwordData.category" required #category="ngModel">
+                    <option value="" disabled selected>Select a category</option>
+                    <option value="work">WORK</option>
+                    <option value="school">SCHOOL</option>
+                    <option value="other">OTHER</option>
+                </select>
+                <div *ngIf="category.invalid && (category.dirty || category.touched)" class="text-red-500 text-sm">
+                    Category is required</div>
+            </div>
+            <div class="flex flex-col gap-2">
+                <label for="userName" class="text-xs font-bold text-gray-500">USERNAME</label>
+                <input type="text" class="p-2 border border-gray-500 rounded-lg text-sm" id="userName" name="userName"
+                    [(ngModel)]="passwordData.userName" required #userName="ngModel">
+                <div *ngIf="userName.invalid && (userName.dirty || userName.touched)" class="text-red-500 text-sm">User
+                    Name is required
+                </div>
+            </div>
+           
+            <div class="flex flex-col gap-2">
+                <label for="encryptedPassword" class="text-xs font-bold text-gray-500">Password</label>
+                <div class="relative">
+                    <input [type]="show ? 'text' : 'password'"
+                        class="w-full p-2 border border-gray-500 rounded-lg text-sm" id="encryptedPassword"
+                        name="encryptedPassword" [(ngModel)]="passwordData.encryptedPassword" required
+                        #encryptedPassword="ngModel">
+                    <button type="button"
+                        class="absolute right-5 top-[10px] border border-green-200 z-[99] text-xs px-2 rounded bg-green-200 text-green-600 font-bold"
+                        (click)="toggleShow()">show</button>
+                </div>
+                <div *ngIf="encryptedPassword.invalid && (encryptedPassword.dirty || encryptedPassword.touched)"
+                    class="text-red-500 text-sm">Password is required
+                </div>
+            </div>
+        </div>
+        <button type="submit" [disabled]="passwordForm.invalid"
+            class="p-2 bg-blue-500 rounded-lg font-bold text-white disabled:bg-gray-400 disabled:cursor-not-allowed">Add
+            Password</button>
+    </div>
+</form>

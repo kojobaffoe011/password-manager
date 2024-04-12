@@ -5,12 +5,13 @@ import { FormsModule, NgForm } from '@angular/forms'; // Import FormsModule
 import { CommonModule } from '@angular/common'; // Import CommonModule
 import { Password } from '../../interfaces/password.interface';
 import { LoaderComponent } from '../../components/loader/loader.component';
+import { FormComponent } from '../../components/form/form.component';
 
 
 @Component({
   selector: 'app-view-password',
   standalone: true,
-  imports: [FormsModule, CommonModule, LoaderComponent],
+  imports: [FormsModule, CommonModule, LoaderComponent, FormComponent],
   templateUrl: './view-password.component.html',
   styleUrl: './view-password.component.css'
 })
@@ -41,7 +42,7 @@ export class ViewPasswordComponent implements OnInit {
 
 
 
-fetchPassword(id: string): void {
+  fetchPassword(id: string): void {
   this.loading = true;
     this.dataService.getSinglePassword(String(id)).subscribe(data => {
       this.passwordData = data;
@@ -64,13 +65,13 @@ fetchPassword(id: string): void {
     this.show = !this.show; // Toggle show password
     }
   
-    submitForm(form: NgForm): void {
-     if (form.valid) {
+    submitForm(event: { form: NgForm, data: any }): void {
+     if (event.form.valid) {
      this.passwordData.encryptedPassword = this.dataService.encryptPassword(this.passwordData.encryptedPassword);
      this.dataService.updatePassword(this.itemId, this.passwordData).subscribe(
       () => {
         // Reset form fields after successful submission
-        form.resetForm();
+        event.form.resetForm();
         console.log('Password added successfully');
 
         // Navigate back to previous page
