@@ -32,6 +32,7 @@ export class DashboardComponent implements OnInit{
       },
       (error) => {
         console.error('Error fetching data:', error);
+        alert('Error fetching Data')
       },
       () => {
         this.loading = false;

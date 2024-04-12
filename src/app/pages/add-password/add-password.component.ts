@@ -44,8 +44,7 @@ export class AddPasswordComponent {
         this.router.navigate(['/categories']); // Navigate to categories after submission
       },
       (error) => {
-        console.error('Error adding password:', error);
-        // Handle error here, display error message to user
+        alert('Error Submitting form')
       }
     );
     } else {

@@ -78,7 +78,7 @@ fetchPassword(id: string): void {
       },
       (error) => {
         console.error('Error adding password:', error);
-        // Handle error here, display error message to user
+        alert('Error Submitting Form')
       }
     );
     } else {
