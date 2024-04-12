@@ -1,18 +1,18 @@
 {
   "passwords": [
     {
-      "id": "e14f",
-      "category": "school",
-      "app": "buff",
-      "userName": "kojobaffoa",
-      "encryptedPassword": "ZGRh"
-    },
-    {
       "id": "c078",
       "category": "other",
       "app": "buff",
       "userName": "qwe",
       "encryptedPassword": "YXNhcw=="
+    },
+    {
+      "id": "4623",
+      "category": "work",
+      "app": "a",
+      "userName": "kojobaffoa",
+      "encryptedPassword": "ZGRhZHNzag=="
     }
   ]
 }
