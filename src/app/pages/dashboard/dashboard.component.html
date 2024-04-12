@@ -1,0 +1,22 @@
+    
+    <div>
+        <div *ngIf="loading"><app-loader/></div>
+        <div *ngIf="!loading && passwords" class="grid grid-cols-3">
+            <div class="flex w-full col-span-2 mb-4">
+                <p class="font-extrabold text-4xl">Manage all your passwords conveniently in one place</p>
+            </div>
+            <div></div>
+            <div class="bg-green-100 p-6 rounded shadow-xl flex flex-col gap-4 cursor-pointer"
+                (click)="navigateTo('/categories')">
+                <div class="flex items-center justify-between">
+                    <p class="font-bold text-2xl text-green-600">Saved Passwords</p>
+                </div>
+                <div class="flex items-center justify-between">
+                    <p class="font-bold text-6xl text-green-600">{{passwords?.length}}</p>
+                </div>
+        
+            </div>
+        
+        </div>
+    </div>
+    

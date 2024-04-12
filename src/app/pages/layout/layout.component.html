@@ -1,0 +1,20 @@
+<div class="h-full relative flex flex-col">
+        <app-header />
+        <div class="grid grid-cols-6 gap-4">
+        <div class="col-span-1 flex flex-col gap-2 mt-6">
+              
+                <ng-container *ngFor="let item of menuItems; let idx = index">
+                <div class="flex px-3 py-2 items-center gap-1 bg-blue-200 rounded-lg cursor-pointer" (click)="navigateTo(item.link)">
+                        <i class="fa-solid fa-house"></i>
+                        <p class="font-bold text-blue-600">{{ item.title }}</p>
+                </div>
+                </ng-container>
+        </div>
+        <div class="col-span-5">
+        <router-outlet/>
+        </div>
+        </div>
+        <app-footer />
+</div>
+
+
