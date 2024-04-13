@@ -10,27 +10,28 @@ import { Router } from '@angular/router';
 export class DataService {
 
   itemId: string = '';
+  url = 'http://localhost:3000'
 
   constructor(private http: HttpClient, private router: Router) { }
 
   getPasswords(): Observable<Password[]> {
-    return this.http.get<Password[]>('http://localhost:3000/passwords');
+    return this.http.get<Password[]>(`${this.url}/passwords`);
   }
 
   addPassword(passwordData: Password): Observable<any> {
-    return this.http.post<any>('http://localhost:3000/passwords', passwordData);
+    return this.http.post<any>(`${this.url}/passwords`, passwordData);
   }
 
   deletePassword(id: string): Observable<any> {
-    return this.http.delete<any>(`http://localhost:3000/passwords/${id}`);
+    return this.http.delete<any>(`${this.url}/passwords/${id}`);
   }
 
   updatePassword(id: string, passwordData: Password): Observable<any> {
-    return this.http.put<any>(`http://localhost:3000/passwords/${id}`, passwordData);
+    return this.http.put<any>(`${this.url}/passwords/${id}`, passwordData);
   }
 
   getSinglePassword(id: string): Observable<Password> {
-    return this.http.get<Password>(`http://localhost:3000/passwords/${id}`);
+    return this.http.get<Password>(`${this.url}/passwords/${id}`);
   }
 
    encryptPassword(password: string): string {
@@ -46,10 +47,11 @@ export class DataService {
             // Proceed with the delete action
           this.deletePassword(itemId).subscribe(data => {
           this.router.navigate([`/dashboard`]);
+          }, (error) => {
+            console.log('Error deleting this item', error)
           });
         } else {
-            // Do nothing or provide feedback to the user
-            console.log('hey it didnt work ')
+            console.log('Operation cancelled')
         }
     }
 }
