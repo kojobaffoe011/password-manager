@@ -1,14 +1,12 @@
 import { Routes } from '@angular/router';
 import { AddPasswordComponent } from './pages/add-password/add-password.component';
-import { CategoriesComponent } from './pages/categories/categories.component';
+import { PasswordsComponent } from './pages/passwords/passwords.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LayoutComponent } from './pages/layout/layout.component';
-import { LoginComponent } from './pages/login/login.component';
 import { ViewPasswordComponent } from './pages/view-password/view-password.component';
 
 export const routes: Routes = [
-    {path:'*',redirectTo:'',pathMatch:'full'},
-    {path:'', component:LoginComponent},
+    {path:'*',redirectTo:'/dashboard',pathMatch:'full'},
     {
         path: '', component: LayoutComponent, children: [
             { path: '', redirectTo: 'dashboard', pathMatch: 'full' }, // Redirect to dashboard by default
@@ -18,7 +16,7 @@ export const routes: Routes = [
             },
             {
                 path: 'categories',
-                component: CategoriesComponent,
+                component: PasswordsComponent,
             },
             {
                 path: 'add-password',

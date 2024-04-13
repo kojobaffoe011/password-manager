@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common'; // Import CommonModule
 import { DataService } from '../../services/data.services';
 import { LoaderComponent } from '../loader/loader.component';
 import { ButtonComponent } from '../button/button.component';
+import { SharedServices } from '../../services/shared.services';
 
 
 
@@ -19,10 +20,11 @@ export class TableComponent implements OnInit{
 
   data: any[] = [];
   loading = false;
+  
+  
 
 
-  constructor(private dataService: DataService, private router: Router) { }
-
+  constructor(private dataService: DataService, private router: Router, public dateTimeService: SharedServices) { }
   ngOnInit(): void {
     this.fetchPasswords();
   }
@@ -43,6 +45,7 @@ export class TableComponent implements OnInit{
          this.data = data;
       },
       (error) => {
+        alert('Error fetching Data')
         console.error('Error fetching data:', error);
       },
       () => {
@@ -53,6 +56,8 @@ export class TableComponent implements OnInit{
 
    navigateTo(link: string): void {
     this.router.navigate([link]);
-  }
+   }
+  
+  
 
 }

@@ -6,13 +6,13 @@ import { TableComponent } from '../../components/table/table.component';
 import { DataService } from '../../services/data.services';
 
 @Component({
-  selector: 'app-categories',
+  selector: 'app-passwords',
   standalone: true,
   imports: [TableComponent, LoaderComponent, CommonModule],
-  templateUrl: './categories.component.html',
-  styleUrl: './categories.component.css'
+  templateUrl: './passwords.component.html',
+  styleUrl: './passwords.component.css'
 })
-export class CategoriesComponent implements OnInit{
+export class PasswordsComponent implements OnInit{
   passwords: any[] = [];
   loading = false;
 
@@ -30,6 +30,7 @@ export class CategoriesComponent implements OnInit{
          this.passwords = passwords;
       },
       (error) => {
+        alert('Error fetching Data')
         console.error('Error fetching data:', error);
       },
       () => {

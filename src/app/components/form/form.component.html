@@ -1,4 +1,5 @@
-<form #passwordForm="ngForm" (ngSubmit)="submitForm(passwordForm, passwordData)">
+<div>
+    <form #passwordForm="ngForm" (ngSubmit)="submitForm(passwordForm, passwordData)">
     <div class="flex flex-col max-w-[600px] w-full">
         <div class="grid grid-cols-2 gap-2 mb-6">
             <div class="flex flex-col gap-2">
@@ -28,7 +29,7 @@
                     Name is required
                 </div>
             </div>
-           
+
             <div class="flex flex-col gap-2">
                 <label for="encryptedPassword" class="text-xs font-bold text-gray-500">Password</label>
                 <div class="relative">
@@ -46,9 +47,9 @@
             </div>
         </div>
         <button type="submit" [disabled]="passwordForm.invalid"
-            class="p-2 bg-blue-500 rounded-lg font-bold text-white disabled:bg-gray-400 disabled:cursor-not-allowed">Add
-            Password</button>
+            class="p-2 bg-blue-500 rounded-lg font-bold text-white disabled:bg-gray-400 disabled:cursor-not-allowed"><p>{{formType === 'edit' ? 'Edit Password' : 'Add Password'}}</p> </button>
 
 
     </div>
-</form>
+    </form>
+</div>

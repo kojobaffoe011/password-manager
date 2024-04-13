@@ -5,7 +5,6 @@
               
                 <ng-container *ngFor="let item of menuItems; let idx = index">
                 <div class="flex px-3 py-2 items-center gap-1 bg-blue-200 rounded-lg cursor-pointer" (click)="navigateTo(item.link)">
-                        <i class="fa-solid fa-house"></i>
                         <p class="font-bold text-blue-600">{{ item.title }}</p>
                 </div>
                 </ng-container>

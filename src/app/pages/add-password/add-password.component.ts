@@ -22,9 +22,11 @@ export class AddPasswordComponent {
     category: '',
     app: '',
     userName: '',
-    encryptedPassword: ''
+    encryptedPassword: '',
+    updatedAt: new Date(),
   };
   show = false;
+  formType = 'add'
 
   constructor(private router: Router, private dataService: DataService) { }
 

@@ -39,31 +39,35 @@
                             <div class="flex items-center">
                                 <span
                                     class="p-1 text-xs uppercase tracking-wider text-green-800 bg-green-200 rounded-lg bg-opacity-50 font-extrabold">
-                                    {{ item?.app }}
+                                    {{ item.app }}
                                 </span>
                             </div>
-                            <div><p class="text-xs font-light">{{item?.userName}}</p></div>
+                            <div><p class="text-xs font-light">{{item.userName}}</p></div>
                         </div>
                     </td>
                     <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
                         <div class="flex flex-col">
                             <div class="flex items-center">
                                 <span
-                                    class="p-1 text-xs uppercase tracking-wider text-green-800 bg-green-200 rounded-lg bg-opacity-50 font-extrabold">
-                                    {{ item?.category }}
+                                    class="p-1 text-xs uppercase tracking-wider rounded-lg bg-opacity-50 font-extrabold"
+                                    [class.text-blue-800]="item.category === 'work'" [class.bg-blue-200]="item.category === 'work'" 
+                                    [class.text-yellow-800]="item.category === 'school'" [class.bg-yellow-200]="item.category === 'school'" 
+                                    [class.text-red-800]="item.category === 'other'" [class.bg-red-300]="item.category === 'other'" 
+                                    >
+                                    {{ item.category }}
                                 </span>
                             </div>
                         </div>
                     </td>
                     <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
                         <div>
-                          <p class="font-bold">{{item?.encryptedPassword}}</p>
+                          <p class="font-bold">{{item.encryptedPassword}}</p>
                         </div>
                     </td>
                     <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
                         <div class="flex flex-col">
                             <div class="flex items-center">
-                                <p class="mr-3 talic text-xs">2nd May 2023, 10:23PM </p>
+                                <p class="mr-3 talic text-xs">{{ dateTimeService.humanDatetime(item.updatedAt) }}</p>
                             </div>
                         </div>
                     </td>

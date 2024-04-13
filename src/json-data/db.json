@@ -1,11 +1,13 @@
 {
   "passwords": [
     {
-      "id": "abcf",
-      "category": "school",
-      "app": "OUTLOOK",
-      "userName": "kojobaffoa",
-      "encryptedPassword": "ZGRhZHNzag=="
+      "id": "bb93",
+      "category": "other",
+      "app": "FACEBOOK",
+      "userName": "kojobaffoe100",
+      "encryptedPassword": "YWpza2Fsa3Bv",
+      "updatedAt": "2024-04-13T12:14:29.757Z"
     }
-  ]
+  ],
+  "users": []
 }

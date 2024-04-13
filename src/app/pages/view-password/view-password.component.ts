@@ -7,6 +7,7 @@ import { Password } from '../../interfaces/password.interface';
 import { LoaderComponent } from '../../components/loader/loader.component';
 import { FormComponent } from '../../components/form/form.component';
 import { ButtonComponent } from '../../components/button/button.component';
+import { SharedServices } from '../../services/shared.services';
 
 
 @Component({
@@ -29,12 +30,14 @@ export class ViewPasswordComponent implements OnInit {
     category: '',
     app: '',
     userName: '',
-    encryptedPassword: ''
+    encryptedPassword: '',
+    updatedAt: new Date(),
+
   };
 
 
 
-  constructor(private dataService: DataService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private dataService: DataService, private router: Router, private route: ActivatedRoute, public sharedServices: SharedServices) { }
 
   ngOnInit(): void {
     console.log(this.passwordData)
@@ -68,7 +71,8 @@ export class ViewPasswordComponent implements OnInit {
   
     submitForm(event: { form: NgForm, data: any }): void {
      if (event.form.valid) {
-     this.passwordData.encryptedPassword = this.dataService.encryptPassword(this.passwordData.encryptedPassword);
+       this.passwordData.encryptedPassword = this.dataService.encryptPassword(this.passwordData.encryptedPassword);
+       this.passwordData.updatedAt = new Date();
      this.dataService.updatePassword(this.itemId, this.passwordData).subscribe(
       () => {
         // Reset form fields after successful submission
@@ -84,7 +88,7 @@ export class ViewPasswordComponent implements OnInit {
       }
     );
     } else {
-      // Display error message or handle invalid form
+      // Display error message
       console.log('Form is invalid');
     }
     }
